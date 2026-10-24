@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>График смен</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Смены">
+<meta name="theme-color" content="#2196f3">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB3UlEQVR42u3cQQ3AIAxAUazMBtqwsdniig8EgIFxXMO2R74A0rxTD03H1aXbkhEIDsEhOASH4BAcgkNwCA7BIcEhOASH4BAcgkNwCA7BITgkOASH4BAcejGOEfuW32g5stU3Sj0jgwMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCQa4KCwwgEh+AQHIJDcOgXh/Ftn/ZbCcIBBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwyDVBwSHBITgEh+AQHPoSDtunDVeCcMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxyTVBwSHAIDsEhOASH4BAcgkNwCA7BIcEhOASH4BAcgkNwCA7BITgkOASH4NATTULJvxBv/QusAAAAAElFTkSuQmCC">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB3UlEQVR42u3cQQ3AIAxAUazMBtqwsdniig8EgIFxXMO2R74A0rxTD03H1aXbkhEIDsEhOASH4BAcgkNwCA7BIcEhOASH4BAcgkNwCA7BITgkOASH4BAcejGOEfuW32g5stU3Sj0jgwMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCQa4KCwwgEh+AQHIJDcOgXh/Ftn/ZbCcIBBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwyDVBwSHBITgEh+AQHPoSDtunDVeCcMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxyTVBwSHAIDsEhOASH4BAcgkNwCA7BIcEhOASH4BAcgkNwCA7BITgkOASH4NATTULJvxBv/QusAAAAAElFTkSuQmCC">
+<script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
+<style>
+:root{--blue:#2196f3;--blue2:#1e88e5;--bg:#dcecfb;--tx:#1d2733;--mut:#8a97a6}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);
+font-family:Roboto,-apple-system,"SF Pro Text","Segoe UI",sans-serif;-webkit-user-select:none;user-select:none}
+.bar{position:sticky;top:0;z-index:5;background:var(--blue);color:#fff;display:flex;align-items:center;gap:22px;
+padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;font-size:20px;font-weight:500}
+.bar button{background:none;border:0;color:#fff;padding:4px;display:flex}
+.bar .logo{margin-left:auto;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--blue2);
+display:flex;align-items:center;justify-content:center}
+.orn{height:46px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' fill='%231e88e5'/%3E%3Cpath d='M18 3 33 18 18 33 3 18Z' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3Cpath d='M18 12 24 18 18 24 12 18Z' fill='%23fff'/%3E%3Cpath d='M0 0h6M0 0v6M36 0h-6M36 0v6M0 36h6M0 36v-6M36 36h-6M36 36v-6' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E") center/auto 100% repeat-x;
+border-bottom:4px solid #fff}
+main{max-width:520px;margin:0 auto;padding:16px 14px calc(env(safe-area-inset-bottom) + 96px)}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.nav h2{flex:1;text-align:center;margin:0;font-size:21px;font-weight:700;color:var(--blue2)}
+.nav button{width:58px;height:58px;border-radius:50%;border:0;background:var(--blue);color:#fff;display:flex;
+align-items:center;justify-content:center;box-shadow:0 2px 5px #0003}
+.sumline{text-align:center;margin:18px 0 14px;font-size:22px}
+.sumline small{font-size:13px;color:var(--mut);margin-left:6px}
+.card{display:flex;align-items:center;gap:12px;background:#fff;border-radius:14px;padding:14px 14px;margin-bottom:12px;
+box-shadow:0 1px 3px #0002;border-left:6px solid transparent}
+.card.me{border-left-color:var(--blue2)}
+.card .mid{flex:1;text-align:center;min-width:0}
+.card small{display:block;font-size:14px;color:#3b4654}
+.card strong{display:block;font-size:24px;font-weight:400;margin-top:2px}
+.card button{background:none;border:0;color:var(--tx);padding:2px;display:flex}
+.info{background:#ffffffb8;border-radius:12px;margin:-6px 6px 12px;padding:10px 14px;font-size:14px;line-height:1.5;color:#3b4654}
+.p-eve{background:#ffe0b2}.p-day{background:#fff3a8}.p-n1,.p-n2{background:#c4e6ff}.p-sl{background:#dbe5ff}.p-off{background:#d4f2dc}
+.card{cursor:pointer}.card .ic{display:flex;color:var(--tx)}
+.cal{position:fixed;inset:0;z-index:8;background:#eef5fc;overflow-y:auto}
+.cbody{max-width:520px;margin:0 auto;padding:0 10px calc(env(safe-area-inset-bottom) + 24px)}
+.chead{display:flex;align-items:center;padding:12px 0 10px}
+.chead .arr{background:none;border:0;color:var(--blue2);display:flex;padding:6px}
+.chead .mt{background:none;border:0;font:700 19px Roboto,sans-serif;color:var(--tx);padding:6px 4px}
+.sm{margin-left:auto;position:relative;font-size:17px;padding:6px 2px}
+.sm b{color:var(--blue2);font-weight:500}
+.sm select{position:absolute;inset:0;width:100%;height:100%;opacity:0;font-size:16px}
+.wd,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.wd{border-bottom:2px solid #b9d3ee;margin-bottom:5px}
+.wd span{text-align:center;font-size:12px;color:var(--mut);padding:4px 0}
+.c{position:relative;aspect-ratio:1/1.15;border:1px solid #b8c7d8;border-radius:6px;color:var(--tx);padding:0;font-family:inherit;min-width:0}
+.c i{position:absolute;left:5px;top:3px;font-style:normal;font-size:12px;font-weight:700}
+.c b{position:absolute;right:4px;bottom:4px;font-size:10px;font-weight:500;white-space:nowrap}
+.c.blank{visibility:hidden}
+.c.today{border:2px solid var(--blue2)}
+.gt{text-align:center;margin:18px 0 6px;font-size:20px;font-weight:700}
+.stats div{display:flex;justify-content:space-between;padding:10px 6px;font-size:17px;border-bottom:1px solid #d3e1f0}
+.stats b{font-weight:500}
+.f{margin:14px 4px 0;font-size:12px;color:#55647a;line-height:1.5}
+.fab{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom) + 20px);width:58px;height:58px;border-radius:50%;
+border:0;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px #0004}
+.shade{position:fixed;inset:0;background:#0006;z-index:9;display:none}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:260px;background:#fff;z-index:10;transform:translateX(-100%);transition:transform .2s;
+padding:calc(env(safe-area-inset-top) + 20px) 0 20px}
+.drawer h3{margin:0 20px 14px;color:var(--blue2)}
+.drawer button{display:block;width:100%;text-align:left;background:none;border:0;padding:15px 20px;font:17px Roboto,sans-serif;color:var(--tx)}
+.drawer button.on{background:#e3f1fe;color:var(--blue2);font-weight:500}
+body.menu .shade{display:block}body.menu .drawer{transform:none}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.drawer{transition:none}}
+#title{cursor:pointer;padding:6px 0}
+#title:after{content:" \25BE";font-size:.8em}
+.dlg{position:fixed;inset:0;background:#0007;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px}
+.dlg .box{background:#fff;border-radius:18px;padding:20px 16px 8px;width:100%;max-width:360px}
+.dlg h3{margin:0 0 14px;text-align:center;color:var(--blue2);font-weight:500}
+.dlg .sel{display:flex;gap:8px}
+.dlg select{flex:1;min-width:0;font:17px Roboto,sans-serif;padding:12px 6px;border:1px solid #b9d3ee;border-radius:12px;background:#f4f9ff;color:var(--tx)}
+.dlg #sM{flex:2}
+.dlg .act{display:flex;justify-content:flex-end;gap:6px;margin-top:12px}
+.dlg .act button{background:none;border:0;color:var(--blue2);font:500 16px Roboto,sans-serif;padding:12px 16px}
+.c.hol i{color:#d32f2f}
+.c.chg:after{content:"";position:absolute;right:4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--blue2)}
+.dlg .box{max-height:92vh;overflow-y:auto}
+.opts button{display:flex;justify-content:space-between;align-items:center;width:100%;border:2px solid transparent;border-radius:10px;padding:11px 14px;margin-bottom:6px;font:17px Roboto,sans-serif;color:var(--tx)}
+.opts button.on{border-color:var(--blue2)}
+.opts .l{color:#55647a;font-size:14px}
+/* тёмная тема (включается атрибутом data-theme="dark") */
+:root[data-theme="dark"]{--blue:#2a5a8c;--blue2:#7fb0e0;--bg:#0c0f14;--tx:#d5dbe4;--mut:#7c8798;color-scheme:dark}
+:root[data-theme="dark"] .bar{background:#1a2f47;color:#dbe6f2}
+:root[data-theme="dark"] .bar button svg,:root[data-theme="dark"] .nav button svg{stroke:#dbe6f2}
+:root[data-theme="dark"] .bar .logo{background:#cfd9e6;color:#1a2f47}
+:root[data-theme="dark"] .orn{border-bottom-color:#2a3a50}
+:root[data-theme="dark"] .nav button,:root[data-theme="dark"] .fab{color:#dbe6f2;box-shadow:0 2px 6px #0006}
+:root[data-theme="dark"] .fab svg{stroke:#dbe6f2}
+:root[data-theme="dark"] .fab circle{fill:#dbe6f2}
+:root[data-theme="dark"] .card{background:#151a22;box-shadow:none}
+:root[data-theme="dark"] .card small,:root[data-theme="dark"] .info{color:#a9b4c3}
+:root[data-theme="dark"] .info{background:#151a22}
+:root[data-theme="dark"] .p-eve{background:#4a3820}
+:root[data-theme="dark"] .p-day{background:#4a4620}
+:root[data-theme="dark"] .p-n1,:root[data-theme="dark"] .p-n2{background:#1f3a58}
+:root[data-theme="dark"] .p-sl{background:#2a3350}
+:root[data-theme="dark"] .p-off{background:#1f4030}
+:root[data-theme="dark"] .cal{background:#0a0d12}
+:root[data-theme="dark"] .wd{border-bottom-color:#25405e}
+:root[data-theme="dark"] .c{border-color:#263140}
+:root[data-theme="dark"] .c.hol i{color:#e08585}
+:root[data-theme="dark"] .stats div{border-bottom-color:#1d2633}
+:root[data-theme="dark"] .f{color:#7c8798}
+:root[data-theme="dark"] .drawer,:root[data-theme="dark"] .dlg .box{background:#151a22}
+:root[data-theme="dark"] .drawer button.on{background:#1c2f48}
+:root[data-theme="dark"] .dlg select{background:#1d2430;border-color:#2d3a4c}
+:root[data-theme="dark"] .opts .l{color:#9aa7b8}
+:root[data-theme="dark"] .orn{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' fill='%231a2f47'/%3E%3Cpath d='M18 3 33 18 18 33 3 18Z' fill='none' stroke='%239db8d6' stroke-width='2.5'/%3E%3Cpath d='M18 12 24 18 18 24 12 18Z' fill='%239db8d6'/%3E%3Cpath d='M0 0h6M0 0v6M36 0h-6M36 0v6M0 36h6M0 36v-6M36 36h-6M36 36v-6' stroke='%239db8d6' stroke-width='2.5'/%3E%3C/svg%3E")}
+.bar .logo{cursor:pointer}
+:root[data-theme="dark"] .bar .logo svg{stroke:#1a2f47}
+</style>
+</head>
+<body>
+<div class="bar"><button id="burger" aria-label="Меню"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><span>График смен</span>
+<button class="logo" id="themeBtn" aria-label="Сменить тему"></button></div>
+<div class="orn"></div>
+<div class="shade" id="shade"></div>
+<div class="drawer"><h3>Смены Полимира</h3><button id="mDay">День</button><button id="mMon">Календарь</button></div>
+<main>
+<div class="nav"><button id="prev" aria-label="Назад"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><h2 id="title" role="button" tabindex="0" aria-label="Выбрать дату"></h2><button id="next" aria-label="Вперёд"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+<section id="dayv"><div class="sumline">8ч смены </div><div id="cards"></div></section>
+</main>
+<button class="fab" id="fab" aria-label="Сегодня"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><circle cx="12" cy="15.5" r="1.8" fill="#fff"/></svg></button>
+<div class="cal" id="cal" hidden>
+<div class="bar"><button id="calBack" aria-label="Назад"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 5l-7 7 7 7"/></svg></button><span>Календарь</span></div>
+<div class="cbody">
+<div class="chead"><button class="arr" id="cPrev" aria-label="Назад"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button class="mt" id="mTitle" aria-label="Выбрать дату"></button><button class="arr" id="cNext" aria-label="Вперёд"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+<label class="sm">Смена: <b id="smName"></b><select id="smSel" aria-label="Смена"></select></label></div>
+<div class="wd"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+<div class="grid" id="grid"></div>
+<h3 class="gt" id="gt"></h3>
+<div class="stats" id="stats"></div>
+<p class="f">Красный номер — праздничный день, синяя точка — изменённая смена.</p>
+</div></div>
+<div class="dlg" id="edDlg" hidden><div class="box"><h3 id="edTitle"></h3><div class="opts" id="edOpts"></div>
+<div class="act"><button id="edReset">По графику</button><button id="edShow">Открыть день</button><button id="edCancel">Отмена</button></div></div></div>
+<div class="dlg" id="dlg" hidden><div class="box"><h3>Выберите дату</h3>
+<div class="sel"><select id="sD" aria-label="День"></select><select id="sM" aria-label="Месяц"></select><select id="sY" aria-label="Год"></select></div>
+<div class="act"><button id="dCancel">Отмена</button><button id="dOk">Готово</button></div></div></div>
+<script>
+(function(){
+'use strict';
+var CYC=[
+{k:'eve',n:'1-я С 4-х',l:'7,5/1,5н',t:7.5,h:1.5},{k:'eve',n:'2-я С 4-х',l:'7,5/1,5н',t:7.5,h:1.5},
+{k:'off',n:'ВЫХОДНОЙ',l:'0',t:0,h:0},
+{k:'day',n:'1-я С УТРА',l:'8',t:8,h:0},{k:'day',n:'2-я С УТРА',l:'8',t:8,h:0},
+{k:'n1',n:'1-я НОЧЬ',l:'0,5н',t:.5,h:.5},{k:'n2',n:'2-я НОЧЬ',l:'8,5н',t:8.5,h:8.5},
+{k:'sl',n:'ОТСЫПНОЙ',l:'8н',t:8,h:8},
+{k:'off',n:'ВЫХОДНОЙ',l:'0',t:0,h:0},{k:'off',n:'ВЫХОДНОЙ',l:'0',t:0,h:0}];
+var NAMES=['А','Б','В','Г','Д'];
+var START=[2,4,6,8,10];                 // день цикла Бр.1..Бр.5 на 1 окт 2026
+var BASE=Date.UTC(2026,9,1);
+var MONTHS=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+var MS=['янв.','февр.','мар.','апр.','мая','июн.','июл.','авг.','сент.','окт.','нояб.','дек.'];
+var WS=['вс','пн','вт','ср','чт','пт','сб'];
+function diffDays(y,m,d){return Math.round((Date.UTC(y,m,d)-BASE)/864e5);}
+function cycleDay(b,y,m,d){return ((((START[b]-1+diffDays(y,m,d))%10)+10)%10)+1;} // ((старт-1+Δ) mod 10)+1
+function fmt(x){return String(x).replace('.',',');}
+var $=function(i){return document.getElementById(i);};
+var OVR={};try{OVR=JSON.parse(localStorage.getItem('ovr')||'{}')||{};}catch(e){OVR={};}
+function ovKey(y,m,d){return y+'-'+(m+1)+'-'+d;}
+function isOvr(b,y,m,d){return !!(OVR[b]&&OVR[b][ovKey(y,m,d)]);}
+function effDay(b,y,m,d){return (OVR[b]&&OVR[b][ovKey(y,m,d)])||cycleDay(b,y,m,d);} // ручная замена или расчёт по формуле
+function saveOvr(){try{localStorage.setItem('ovr',JSON.stringify(OVR));}catch(e){}}
+var ICAL='<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+var IINF='<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7.5v.5"/></svg>';
+
+var brig=0;try{brig=Math.max(0,Math.min(4,+localStorage.getItem('brig')||0));}catch(e){}
+var now=new Date(),T={y:now.getFullYear(),m:now.getMonth(),d:now.getDate()};
+var cur={y:T.y,m:T.m,d:T.d},view='day',open={};
+
+function setBrig(i){brig=i;try{localStorage.setItem('brig',i);}catch(e){}}
+function render(){
+ var dim=new Date(cur.y,cur.m+1,0).getDate();if(cur.d>dim)cur.d=dim;
+ $('title').textContent=WS[new Date(cur.y,cur.m,cur.d).getDay()]+', '+cur.d+' '+MS[cur.m]+' '+cur.y+' г.';
+ dayView();
+ $('cal').hidden=view!=='month';if(view==='month')monthView();
+ $('mDay').className=view==='day'?'on':'';$('mMon').className=view==='month'?'on':'';
+}
+function dayView(){
+ var h='';
+ for(var b=0;b<5;b++){
+  var cd=effDay(b,cur.y,cur.m,cur.d),c=CYC[cd-1];
+  h+='<div class="card p-'+c.k+(b===brig?' me':'')+'" data-b="'+b+'"><span class="ic">'+ICAL+'</span>'+
+   '<div class="mid"><small>Смена '+NAMES[b]+(isOvr(b,cur.y,cur.m,cur.d)?' · изменено':'')+'</small><strong>'+c.n+'</strong></div>'+
+   '<button data-inf="'+b+'" aria-label="Подробнее">'+IINF+'</button></div>';
+  if(open[b])h+='<div class="info">Обозначение: <b>'+c.l+'</b><br>Всего часов: '+fmt(c.t)+', из них ночных: '+fmt(c.h)+
+   '</div>';
+ }
+ $('cards').innerHTML=h;
+}
+var SH=['янв.','февр.','март','апр.','май','июнь','июль','авг.','сент.','окт.','нояб.','дек.'];
+// Радуница (9-й день после православной Пасхи), расчёт по юлианскому календарю
+function radunitsa(y){
+ var A=y%4,B=y%7,C=y%19,D=(19*C+15)%30,E=(2*A+4*B-D+34)%7,t=D+E+114;
+ return new Date(y,Math.floor(t/31)-1,t%31+1+13+9);
+}
+// Праздничные дни РБ: 1, 2, 7 янв; 8 мар; Радуница; 1, 9 мая; 3 июл; 7 ноя; 25 дек; последнее воскресенье мая
+function isHol(y,m,d){
+ if((m===0&&(d===1||d===2||d===7))||(m===2&&d===8)||(m===4&&(d===1||d===9))||(m===6&&d===3)||(m===10&&d===7)||(m===11&&d===25))return true;
+ if(m===4&&d>=25&&new Date(y,4,d).getDay()===0)return true;
+ var r=radunitsa(y);return r.getMonth()===m&&r.getDate()===d;
+}
+// Норма: будний день = 7 ч, будний предпраздничный день (следующий день праздничный) = 6 ч; выходные и праздники = 0
+function normOf(y,m,days){
+ var n=0;
+ for(var d=1;d<=days;d++){
+  var w=new Date(y,m,d).getDay();if(w===0||w===6||isHol(y,m,d))continue;
+  var x=new Date(y,m,d+1);n+=isHol(x.getFullYear(),x.getMonth(),x.getDate())?6:7;
+ }
+ return n;
+}
+function monthView(){
+ var y=cur.y,m=cur.m,first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate();
+ var html='',sT=0,sN=0,sC=0,sH=0,i;
+ for(i=0;i<first;i++)html+='<div class="c blank"></div>';
+ for(var d=1;d<=days;d++){
+  var cd=effDay(brig,y,m,d),c=CYC[cd-1];sT+=c.t;sN+=c.h;if(cd===1||cd===2||cd===4||cd===5||cd===6||cd===7)sC++; // смены: дни цикла 1,2,4,5,6,7if(isHol(y,m,d))sH+=c.t;
+  html+='<button class="c p-'+c.k+(y===T.y&&m===T.m&&d===T.d?' today':'')+(isOvr(brig,y,m,d)?' chg':'')+(isHol(y,m,d)?' hol':'')+'" data-d="'+d+'"><i>'+d+'</i><b>'+c.l+'</b></button>';
+ }
+ $('grid').innerHTML=html;
+ var norm=normOf(y,m,days),over=Math.max(0,sT-norm);
+ $('mTitle').textContent=SH[m]+' '+y;$('smName').textContent=NAMES[brig];$('smSel').value=brig;
+ $('gt').textContent='График смены '+NAMES[brig];
+ function row(a,v){return '<div><span>'+a+'</span><b>'+v+'</b></div>';}
+ $('stats').innerHTML=row('Фактические часы:',fmt(sT)+'ч')+row('Из них ночные часы:',fmt(sN)+'ч')+row('Норма рабочего времени:',fmt(norm)+'ч')+
+  row('Переработанные часы:',fmt(over)+'ч')+row('Праздничные часы:',sH?fmt(sH)+'ч':'')+row('Количество смен:',sC);
+}
+function step(n){
+ if(view==='day'){var x=new Date(cur.y,cur.m,cur.d+n);cur={y:x.getFullYear(),m:x.getMonth(),d:x.getDate()};}
+ else{var x2=new Date(cur.y,cur.m+n,1);cur={y:x2.getFullYear(),m:x2.getMonth(),d:Math.min(cur.d,new Date(x2.getFullYear(),x2.getMonth()+1,0).getDate())};}
+ render();
+}
+function opts(sel,from,to,names){var h='';for(var i=from;i<=to;i++)h+='<option value="'+i+'">'+(names?names[i]:i)+'</option>';sel.innerHTML=h;}
+function fillDays(){var dim=new Date(+$('sY').value,+$('sM').value+1,0).getDate(),d=+$('sD').value||1;opts($('sD'),1,dim);$('sD').value=Math.min(d,dim);}
+function openDlg(){
+ opts($('sM'),0,11,MONTHS);opts($('sY'),Math.min(2020,cur.y),Math.max(2050,cur.y));
+ $('sM').value=cur.m;$('sY').value=cur.y;$('sD').value=cur.d;fillDays();$('sD').value=cur.d;
+ $('sD').hidden=view!=='day';$('dlg').hidden=false;
+}
+function closeDlg(){$('dlg').hidden=true;}
+$('title').onclick=openDlg;
+$('title').onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openDlg();}};
+$('sM').onchange=fillDays;$('sY').onchange=fillDays;
+$('dCancel').onclick=closeDlg;
+$('dlg').onclick=function(e){if(e.target===this)closeDlg();};
+$('dOk').onclick=function(){
+ var y=+$('sY').value,m=+$('sM').value,dim=new Date(y,m+1,0).getDate();
+ cur={y:y,m:m,d:view==='day'?Math.min(+$('sD').value,dim):Math.min(cur.d,dim)};closeDlg();render();
+};
+function menu(on){document.body.classList.toggle('menu',on);}
+$('prev').onclick=function(){step(-1);};$('next').onclick=function(){step(1);};
+$('fab').onclick=function(){cur={y:T.y,m:T.m,d:T.d};render();};
+$('burger').onclick=function(){menu(true);};$('shade').onclick=function(){menu(false);};
+$('mDay').onclick=function(){view='day';menu(false);render();};
+$('mMon').onclick=function(){view='month';menu(false);render();$('cal').scrollTop=0;};
+$('cards').onclick=function(e){
+ var inf=e.target.closest('[data-inf]');
+ if(inf){var k=+inf.getAttribute('data-inf');open[k]=!open[k];render();return;}
+ var cd=e.target.closest('.card');
+ if(cd){setBrig(+cd.getAttribute('data-b'));view='month';render();$('cal').scrollTop=0;}
+};
+(function(){var h='';for(var i=0;i<5;i++)h+='<option value="'+i+'">Смена '+NAMES[i]+'</option>';$('smSel').innerHTML=h;})();
+$('smSel').onchange=function(){setBrig(+this.value);render();};
+$('calBack').onclick=function(){view='day';render();};
+$('cPrev').onclick=function(){step(-1);};$('cNext').onclick=function(){step(1);};
+$('mTitle').onclick=openDlg;
+var edD=1;
+function openEd(d){
+ edD=d;var cd=effDay(brig,cur.y,cur.m,d),h='',order=[1,2,4,5,6,7,8,3];
+ $('edTitle').textContent=d+' '+MS[cur.m]+', смена '+NAMES[brig];
+ for(var i=0;i<order.length;i++){var o=order[i],c=CYC[o-1];
+  h+='<button class="p-'+c.k+(o===cd?' on':'')+'" data-o="'+o+'"><span>'+c.n+'</span><span class="l">'+c.l+'</span></button>';}
+ $('edOpts').innerHTML=h;$('edReset').hidden=!isOvr(brig,cur.y,cur.m,d);$('edDlg').hidden=false;
+}
+$('grid').onclick=function(e){var t=e.target.closest('button');if(t)openEd(+t.getAttribute('data-d'));};
+$('edOpts').onclick=function(e){
+ var t=e.target.closest('button');if(!t)return;
+ var o=+t.getAttribute('data-o'),k=ovKey(cur.y,cur.m,edD);OVR[brig]=OVR[brig]||{};
+ if(o===cycleDay(brig,cur.y,cur.m,edD))delete OVR[brig][k];else OVR[brig][k]=o;
+ saveOvr();$('edDlg').hidden=true;render();
+};
+$('edReset').onclick=function(){if(OVR[brig])delete OVR[brig][ovKey(cur.y,cur.m,edD)];saveOvr();$('edDlg').hidden=true;render();};
+$('edShow').onclick=function(){cur.d=edD;view='day';$('edDlg').hidden=true;render();};
+$('edCancel').onclick=function(){$('edDlg').hidden=true;};
+$('edDlg').onclick=function(e){if(e.target===this)this.hidden=true;};
+var sx=0,sy=0;
+document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+ if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*2)step(dx<0?1:-1);},{passive:true});
+render();
+
+var SUN='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+var MOON='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+function applyTheme(t){
+ document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}
+ $('themeBtn').innerHTML=t==='dark'?SUN:MOON;
+ $('themeBtn').setAttribute('aria-label',t==='dark'?'Включить светлую тему':'Включить тёмную тему');
+ var mt=document.querySelector('meta[name="theme-color"]');if(mt)mt.setAttribute('content',t==='dark'?'#1a2f47':'#2196f3');
+}
+$('themeBtn').onclick=function(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');};
+applyTheme(document.documentElement.getAttribute('data-theme')||'dark');
+try{ // манифест через Blob (iPhone берёт иконку и полноэкранный режим из meta-тегов)
+ var icon=document.querySelector('link[rel="apple-touch-icon"]').href;
+ var mf={name:'График смен',short_name:'Смены',display:'standalone',orientation:'portrait',start_url:location.href.split('#')[0],
+  background_color:'#0c0f14',theme_color:'#1a2f47',lang:'ru',icons:[{src:icon,sizes:'180x180',type:'image/png',purpose:'any'}]};
+ var l=document.createElement('link');l.rel='manifest';
+ l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/manifest+json'}));document.head.appendChild(l);
+}catch(e){}
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+})();
+</script>
+</body>
+</html>
