@@ -13,9 +13,11 @@
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB3UlEQVR42u3cQQ3AIAxAUazMBtqwsdniig8EgIFxXMO2R74A0rxTD03H1aXbkhEIDsEhOASH4BAcgkNwCA7BIcEhOASH4BAcgkNwCA7BITgkOASH4BAcejGOEfuW32g5stU3Sj0jgwMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCQa4KCwwgEh+AQHIJDcOgXh/Ftn/ZbCcIBBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwyDVBwSHBITgEh+AQHPoSDtunDVeCcMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxyTVBwSHAIDsEhOASH4BAcgkNwCA7BIcEhOASH4BAcgkNwCA7BITgkOASH4NATTULJvxBv/QusAAAAAElFTkSuQmCC">
 <script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
 <style>
-:root{--blue:#2196f3;--blue2:#1e88e5;--bg:#dcecfb;--tx:#1d2733;--mut:#8a97a6}
+:root{--blue:#2196f3;--blue2:#1e88e5;--bg:#e9f0fa;--bgimg:radial-gradient(900px 500px at 15% -5%,#d6e8fb 0%,rgba(214,232,251,0) 70%),radial-gradient(800px 500px at 100% 100%,#efe6f8 0%,rgba(239,230,248,0) 65%),linear-gradient(180deg,#e8f1fb 0%,#edf1fa 100%);--tx:#1d2733;--mut:#8a97a6}
+html{background:var(--bg)}body{background:transparent}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:var(--bgimg)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);
+html,body{margin:0;min-height:100%;color:var(--tx);
 font-family:Roboto,-apple-system,"SF Pro Text","Segoe UI",sans-serif;-webkit-user-select:none;user-select:none}
 .bar{position:sticky;top:0;z-index:5;background:var(--blue);color:#fff;display:flex;align-items:center;gap:22px;
 padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;font-size:20px;font-weight:500}
@@ -41,7 +43,7 @@ box-shadow:0 1px 3px #0002;border-left:6px solid transparent}
 .info{background:#ffffffb8;border-radius:12px;margin:-6px 6px 12px;padding:10px 14px;font-size:14px;line-height:1.5;color:#3b4654}
 .p-eve{background:#ffe0b2}.p-day{background:#fff3a8}.p-n1,.p-n2{background:#c4e6ff}.p-sl{background:#dbe5ff}.p-off{background:#d4f2dc}
 .card{cursor:pointer}.card .ic{display:flex;color:var(--tx)}
-.cal{position:fixed;inset:0;z-index:8;background:#eef5fc;overflow-y:auto}
+.cal{position:fixed;inset:0;z-index:8;background:var(--bgimg),var(--bg);overflow-y:auto}
 .cbody{max-width:520px;margin:0 auto;padding:0 10px calc(env(safe-area-inset-bottom) + 24px)}
 .chead{display:flex;align-items:center;padding:12px 0 10px}
 .chead .arr{background:none;border:0;color:var(--blue2);display:flex;padding:6px}
@@ -83,13 +85,9 @@ body.menu .shade{display:block}body.menu .drawer{transform:none}
 .dlg .act{display:flex;justify-content:flex-end;gap:6px;margin-top:12px}
 .dlg .act button{background:none;border:0;color:var(--blue2);font:500 16px Roboto,sans-serif;padding:12px 16px}
 .c.hol i{color:#d32f2f}
-.c.chg:after{content:"";position:absolute;right:4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--blue2)}
 .dlg .box{max-height:92vh;overflow-y:auto}
-.opts button{display:flex;justify-content:space-between;align-items:center;width:100%;border:2px solid transparent;border-radius:10px;padding:11px 14px;margin-bottom:6px;font:17px Roboto,sans-serif;color:var(--tx)}
-.opts button.on{border-color:var(--blue2)}
-.opts .l{color:#55647a;font-size:14px}
 /* тёмная тема (включается атрибутом data-theme="dark") */
-:root[data-theme="dark"]{--blue:#2a5a8c;--blue2:#7fb0e0;--bg:#0c0f14;--tx:#d5dbe4;--mut:#7c8798;color-scheme:dark}
+:root[data-theme="dark"]{--blue:#2a5a8c;--blue2:#7fb0e0;--bg:#0a0e15;--bgimg:radial-gradient(900px 520px at 50% -8%,#1a2a42 0%,rgba(26,42,66,0) 70%),radial-gradient(700px 500px at 100% 105%,#16142b 0%,rgba(22,20,43,0) 70%),linear-gradient(180deg,#0d121b 0%,#0a0d14 100%);--tx:#d5dbe4;--mut:#7c8798;color-scheme:dark}
 :root[data-theme="dark"] .bar{background:#1a2f47;color:#dbe6f2}
 :root[data-theme="dark"] .bar button svg,:root[data-theme="dark"] .nav button svg{stroke:#dbe6f2}
 :root[data-theme="dark"] .bar .logo{background:#cfd9e6;color:#1a2f47}
@@ -105,7 +103,6 @@ body.menu .shade{display:block}body.menu .drawer{transform:none}
 :root[data-theme="dark"] .p-n1,:root[data-theme="dark"] .p-n2{background:#1f3a58}
 :root[data-theme="dark"] .p-sl{background:#2a3350}
 :root[data-theme="dark"] .p-off{background:#1f4030}
-:root[data-theme="dark"] .cal{background:#0a0d12}
 :root[data-theme="dark"] .wd{border-bottom-color:#25405e}
 :root[data-theme="dark"] .c{border-color:#263140}
 :root[data-theme="dark"] .c.hol i{color:#e08585}
@@ -114,10 +111,17 @@ body.menu .shade{display:block}body.menu .drawer{transform:none}
 :root[data-theme="dark"] .drawer,:root[data-theme="dark"] .dlg .box{background:#151a22}
 :root[data-theme="dark"] .drawer button.on{background:#1c2f48}
 :root[data-theme="dark"] .dlg select{background:#1d2430;border-color:#2d3a4c}
-:root[data-theme="dark"] .opts .l{color:#9aa7b8}
-:root[data-theme="dark"] .orn{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' fill='%231a2f47'/%3E%3Cpath d='M18 3 33 18 18 33 3 18Z' fill='none' stroke='%239db8d6' stroke-width='2.5'/%3E%3Cpath d='M18 12 24 18 18 24 12 18Z' fill='%239db8d6'/%3E%3Cpath d='M0 0h6M0 0v6M36 0h-6M36 0v6M0 36h6M0 36v-6M36 36h-6M36 36v-6' stroke='%239db8d6' stroke-width='2.5'/%3E%3C/svg%3E")}
+:root[data-theme="dark"] :root[data-theme="dark"] .orn{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' fill='%231a2f47'/%3E%3Cpath d='M18 3 33 18 18 33 3 18Z' fill='none' stroke='%239db8d6' stroke-width='2.5'/%3E%3Cpath d='M18 12 24 18 18 24 12 18Z' fill='%239db8d6'/%3E%3Cpath d='M0 0h6M0 0v6M36 0h-6M36 0v6M0 36h6M0 36v-6M36 36h-6M36 36v-6' stroke='%239db8d6' stroke-width='2.5'/%3E%3C/svg%3E")}
 .bar .logo{cursor:pointer}
 :root[data-theme="dark"] .bar .logo svg{stroke:#1a2f47}
+.fld{display:block;margin-bottom:12px;font-size:13px;color:#55647a}
+.fld input,.fld select{display:block;width:100%;margin-top:5px;font:17px Roboto,sans-serif;padding:11px 12px;border:1px solid #b9d3ee;border-radius:12px;background:#f4f9ff;color:var(--tx);-webkit-user-select:text;user-select:text}
+.fldh{margin:14px 0 8px;font-weight:500;color:var(--blue2)}
+:root[data-theme="dark"] .fld{color:#9aa7b8}
+:root[data-theme="dark"] .fld input{background:#1d2430;border-color:#2d3a4c}
+.vrow{display:flex;align-items:center;gap:14px;padding:13px 6px;font-size:18px;border-bottom:1px solid #d3e1f0}
+.vrow input{width:24px;height:24px;accent-color:var(--blue)}
+:root[data-theme="dark"] .vrow{border-bottom-color:#243145}
 </style>
 </head>
 <body>
@@ -125,7 +129,7 @@ body.menu .shade{display:block}body.menu .drawer{transform:none}
 <button class="logo" id="themeBtn" aria-label="Сменить тему"></button></div>
 <div class="orn"></div>
 <div class="shade" id="shade"></div>
-<div class="drawer"><h3>Смены Полимира</h3><button id="mDay">День</button><button id="mMon">Календарь</button></div>
+<div class="drawer"><h3>Смены Полимира</h3><button id="mDay">День</button><button id="mMon">Календарь</button><button id="mSel">Отображаемые смены</button></div>
 <main>
 <div class="nav"><button id="prev" aria-label="Назад"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><h2 id="title" role="button" tabindex="0" aria-label="Выбрать дату"></h2><button id="next" aria-label="Вперёд"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
 <section id="dayv"><div class="sumline">8ч смены </div><div id="cards"></div></section>
@@ -135,15 +139,19 @@ body.menu .shade{display:block}body.menu .drawer{transform:none}
 <div class="bar"><button id="calBack" aria-label="Назад"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 5l-7 7 7 7"/></svg></button><span>Календарь</span></div>
 <div class="cbody">
 <div class="chead"><button class="arr" id="cPrev" aria-label="Назад"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button class="mt" id="mTitle" aria-label="Выбрать дату"></button><button class="arr" id="cNext" aria-label="Вперёд"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-<label class="sm">Смена: <b id="smName"></b><select id="smSel" aria-label="Смена"></select></label></div>
+<label class="sm"><b id="smName"></b><select id="smSel" aria-label="Смена"></select></label></div>
 <div class="wd"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
 <div class="grid" id="grid"></div>
 <h3 class="gt" id="gt"></h3>
 <div class="stats" id="stats"></div>
-<p class="f">Красный номер — праздничный день, синяя точка — изменённая смена.</p>
+<p class="f">Красный номер — праздничный день.</p>
 </div></div>
-<div class="dlg" id="edDlg" hidden><div class="box"><h3 id="edTitle"></h3><div class="opts" id="edOpts"></div>
-<div class="act"><button id="edReset">По графику</button><button id="edShow">Открыть день</button><button id="edCancel">Отмена</button></div></div></div>
+<div class="dlg" id="vsDlg" hidden><div class="box"><h3>Какие смены показывать</h3>
+<div id="vsList"></div><p class="f" id="vsMsg" hidden>Выберите хотя бы одну смену.</p>
+<div class="act"><button id="vsCancel">Отмена</button><button id="vsOk">Готово</button></div></div></div>
+<div class="dlg" id="stDlg" hidden><div class="box"><h3 id="stTitle"></h3>
+<label class="fld">Название смены<input id="stName" maxlength="24"></label>
+<div class="act"><button id="stReset">Сбросить</button><button id="stCancel">Отмена</button><button id="stOk">Сохранить</button></div></div></div>
 <div class="dlg" id="dlg" hidden><div class="box"><h3>Выберите дату</h3>
 <div class="sel"><select id="sD" aria-label="День"></select><select id="sM" aria-label="Месяц"></select><select id="sY" aria-label="Год"></select></div>
 <div class="act"><button id="dCancel">Отмена</button><button id="dOk">Готово</button></div></div></div>
@@ -167,11 +175,14 @@ function diffDays(y,m,d){return Math.round((Date.UTC(y,m,d)-BASE)/864e5);}
 function cycleDay(b,y,m,d){return ((((START[b]-1+diffDays(y,m,d))%10)+10)%10)+1;} // ((старт-1+Δ) mod 10)+1
 function fmt(x){return String(x).replace('.',',');}
 var $=function(i){return document.getElementById(i);};
-var OVR={};try{OVR=JSON.parse(localStorage.getItem('ovr')||'{}')||{};}catch(e){OVR={};}
-function ovKey(y,m,d){return y+'-'+(m+1)+'-'+d;}
-function isOvr(b,y,m,d){return !!(OVR[b]&&OVR[b][ovKey(y,m,d)]);}
-function effDay(b,y,m,d){return (OVR[b]&&OVR[b][ovKey(y,m,d)])||cycleDay(b,y,m,d);} // ручная замена или расчёт по формуле
-function saveOvr(){try{localStorage.setItem('ovr',JSON.stringify(OVR));}catch(e){}}
+function effDay(b,y,m,d){return cycleDay(b,y,m,d);}  // смена строго по формуле
+var BN={};try{BN=JSON.parse(localStorage.getItem('bn')||'{}')||{};}catch(e){BN={};}
+function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+function nameOf(cd){return CYC[cd-1].n;}                              // название вида смены
+function bname(b){return BN[b]||('Смена '+NAMES[b]);}                 // название смены (бригады)
+var VIS=[true,true,true,true,true];
+try{var vv=JSON.parse(localStorage.getItem('vis')||'null');if(vv&&vv.length===5&&vv.some(Boolean))VIS=vv.map(Boolean);}catch(e){}
+function saveNames(){try{localStorage.setItem('bn',JSON.stringify(BN));}catch(e){}}
 var ICAL='<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
 var IINF='<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7.5v.5"/></svg>';
 
@@ -190,10 +201,11 @@ function render(){
 function dayView(){
  var h='';
  for(var b=0;b<5;b++){
+  if(!VIS[b])continue;
   var cd=effDay(b,cur.y,cur.m,cur.d),c=CYC[cd-1];
   h+='<div class="card p-'+c.k+(b===brig?' me':'')+'" data-b="'+b+'"><span class="ic">'+ICAL+'</span>'+
-   '<div class="mid"><small>Смена '+NAMES[b]+(isOvr(b,cur.y,cur.m,cur.d)?' · изменено':'')+'</small><strong>'+c.n+'</strong></div>'+
-   '<button data-inf="'+b+'" aria-label="Подробнее">'+IINF+'</button></div>';
+   '<div class="mid"><small>'+esc(bname(b))+'</small><strong>'+esc(nameOf(cd))+'</strong></div>'+
+   '<button data-inf="'+b+'" aria-label="Настройки смены">'+IINF+'</button></div>';
   if(open[b])h+='<div class="info">Обозначение: <b>'+c.l+'</b><br>Всего часов: '+fmt(c.t)+', из них ночных: '+fmt(c.h)+
    '</div>';
  }
@@ -225,12 +237,12 @@ function monthView(){
  var html='',sT=0,sN=0,sC=0,sH=0,i;
  for(i=0;i<first;i++)html+='<div class="c blank"></div>';
  for(var d=1;d<=days;d++){
-  var cd=effDay(brig,y,m,d),c=CYC[cd-1];sT+=c.t;sN+=c.h;if(cd===1||cd===2||cd===4||cd===5||cd===6||cd===7)sC++; // смены: дни цикла 1,2,4,5,6,7if(isHol(y,m,d))sH+=c.t;
-  html+='<button class="c p-'+c.k+(y===T.y&&m===T.m&&d===T.d?' today':'')+(isOvr(brig,y,m,d)?' chg':'')+(isHol(y,m,d)?' hol':'')+'" data-d="'+d+'"><i>'+d+'</i><b>'+c.l+'</b></button>';
+  var cd=effDay(brig,y,m,d),c=CYC[cd-1];sT+=c.t;sN+=c.h;if(cd===1||cd===2||cd===4||cd===5||cd===6||cd===7)sC++; if(isHol(y,m,d))sH+=c.t; /* смены считаются по дням цикла 1,2,4,5,6,7 */
+  html+='<button class="c p-'+c.k+(y===T.y&&m===T.m&&d===T.d?' today':'')+(isHol(y,m,d)?' hol':'')+'" data-d="'+d+'"><i>'+d+'</i><b>'+c.l+'</b></button>';
  }
  $('grid').innerHTML=html;
  var norm=normOf(y,m,days),over=Math.max(0,sT-norm);
- $('mTitle').textContent=SH[m]+' '+y;$('smName').textContent=NAMES[brig];$('smSel').value=brig;
+ $('mTitle').textContent=SH[m]+' '+y;$('smName').textContent='Смена: '+NAMES[brig];$('smSel').value=brig;
  $('gt').textContent='График смены '+NAMES[brig];
  function row(a,v){return '<div><span>'+a+'</span><b>'+v+'</b></div>';}
  $('stats').innerHTML=row('Фактические часы:',fmt(sT)+'ч')+row('Из них ночные часы:',fmt(sN)+'ч')+row('Норма рабочего времени:',fmt(norm)+'ч')+
@@ -266,34 +278,43 @@ $('mDay').onclick=function(){view='day';menu(false);render();};
 $('mMon').onclick=function(){view='month';menu(false);render();$('cal').scrollTop=0;};
 $('cards').onclick=function(e){
  var inf=e.target.closest('[data-inf]');
- if(inf){var k=+inf.getAttribute('data-inf');open[k]=!open[k];render();return;}
+ if(inf){openSt(+inf.getAttribute('data-inf'));return;}
  var cd=e.target.closest('.card');
  if(cd){setBrig(+cd.getAttribute('data-b'));view='month';render();$('cal').scrollTop=0;}
 };
-(function(){var h='';for(var i=0;i<5;i++)h+='<option value="'+i+'">Смена '+NAMES[i]+'</option>';$('smSel').innerHTML=h;})();
+function fillSmSel(){var h='';for(var i=0;i<5;i++)h+='<option value="'+i+'">Смена '+NAMES[i]+'</option>';$('smSel').innerHTML=h;$('smSel').value=brig;}
+fillSmSel();
 $('smSel').onchange=function(){setBrig(+this.value);render();};
 $('calBack').onclick=function(){view='day';render();};
 $('cPrev').onclick=function(){step(-1);};$('cNext').onclick=function(){step(1);};
 $('mTitle').onclick=openDlg;
-var edD=1;
-function openEd(d){
- edD=d;var cd=effDay(brig,cur.y,cur.m,d),h='',order=[1,2,4,5,6,7,8,3];
- $('edTitle').textContent=d+' '+MS[cur.m]+', смена '+NAMES[brig];
- for(var i=0;i<order.length;i++){var o=order[i],c=CYC[o-1];
-  h+='<button class="p-'+c.k+(o===cd?' on':'')+'" data-o="'+o+'"><span>'+c.n+'</span><span class="l">'+c.l+'</span></button>';}
- $('edOpts').innerHTML=h;$('edReset').hidden=!isOvr(brig,cur.y,cur.m,d);$('edDlg').hidden=false;
-}
-$('grid').onclick=function(e){var t=e.target.closest('button');if(t)openEd(+t.getAttribute('data-d'));};
-$('edOpts').onclick=function(e){
- var t=e.target.closest('button');if(!t)return;
- var o=+t.getAttribute('data-o'),k=ovKey(cur.y,cur.m,edD);OVR[brig]=OVR[brig]||{};
- if(o===cycleDay(brig,cur.y,cur.m,edD))delete OVR[brig][k];else OVR[brig][k]=o;
- saveOvr();$('edDlg').hidden=true;render();
+$('grid').onclick=function(e){var t=e.target.closest('button');if(t){cur.d=+t.getAttribute('data-d');view='day';render();}};
+$('mSel').onclick=function(){
+ menu(false);var h='';
+ for(var i=0;i<5;i++)h+='<label class="vrow"><input type="checkbox" data-i="'+i+'"'+(VIS[i]?' checked':'')+'><span>'+esc(bname(i))+'</span></label>';
+ $('vsList').innerHTML=h;$('vsMsg').hidden=true;$('vsDlg').hidden=false;
 };
-$('edReset').onclick=function(){if(OVR[brig])delete OVR[brig][ovKey(cur.y,cur.m,edD)];saveOvr();$('edDlg').hidden=true;render();};
-$('edShow').onclick=function(){cur.d=edD;view='day';$('edDlg').hidden=true;render();};
-$('edCancel').onclick=function(){$('edDlg').hidden=true;};
-$('edDlg').onclick=function(e){if(e.target===this)this.hidden=true;};
+$('vsOk').onclick=function(){
+ var ins=$('vsList').querySelectorAll('input'),arr=[false,false,false,false,false];
+ for(var i=0;i<ins.length;i++)if(ins[i].checked)arr[+ins[i].getAttribute('data-i')]=true;
+ if(!arr.some(Boolean)){$('vsMsg').hidden=false;return;}
+ VIS=arr;try{localStorage.setItem('vis',JSON.stringify(VIS));}catch(e){}
+ $('vsDlg').hidden=true;render();
+};
+$('vsCancel').onclick=function(){$('vsDlg').hidden=true;};
+$('vsDlg').onclick=function(e){if(e.target===this)this.hidden=true;};
+var stB=0;
+function openSt(b){
+ stB=b;$('stTitle').textContent='Настройки: '+bname(b);$('stName').value=bname(b);
+ $('stDlg').hidden=false;
+}
+$('stOk').onclick=function(){
+ var v=$('stName').value.trim();if(v&&v!==('Смена '+NAMES[stB]))BN[stB]=v;else delete BN[stB];
+ saveNames();fillSmSel();$('stDlg').hidden=true;render();
+};
+$('stReset').onclick=function(){$('stName').value='Смена '+NAMES[stB];};
+$('stCancel').onclick=function(){$('stDlg').hidden=true;};
+$('stDlg').onclick=function(e){if(e.target===this)this.hidden=true;};
 var sx=0,sy=0;
 document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
 document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
