@@ -1,6 +1,6 @@
 // Сервис-воркер "График смен": кэширует приложение для работы без интернета.
 // При изменении index.html увеличьте номер версии, чтобы обновить кэш.
-const CACHE = 'shift-calendar-v27';
+const CACHE = 'shift-calendar-v28';
 const FILES = ['./', './index.html'];
 
 self.addEventListener('install', (e) => {

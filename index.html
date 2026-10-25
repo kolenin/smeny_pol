@@ -122,6 +122,8 @@ body.menu .shade{display:block}body.menu .drawer{transform:none}
 .vrow{display:flex;align-items:center;gap:14px;padding:13px 6px;font-size:18px;border-bottom:1px solid #d3e1f0}
 .vrow input{width:24px;height:24px;accent-color:var(--blue)}
 :root[data-theme="dark"] .vrow{border-bottom-color:#243145}
+html.lock,html.lock body{overflow:hidden;height:100%}
+.cal{overscroll-behavior:contain}
 </style>
 </head>
 <body>
@@ -196,6 +198,7 @@ function render(){
  $('title').textContent=WS[new Date(cur.y,cur.m,cur.d).getDay()]+', '+cur.d+' '+MS[cur.m]+' '+cur.y+' г.';
  dayView();
  $('cal').hidden=view!=='month';if(view==='month')monthView();
+ document.documentElement.classList.toggle('lock',view==='month'); // под календарём страница не прокручивается
  $('mDay').className=view==='day'?'on':'';$('mMon').className=view==='month'?'on':'';
 }
 function dayView(){
