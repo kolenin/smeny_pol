@@ -237,7 +237,7 @@ function monthView(){
  var html='',sT=0,sN=0,sC=0,sH=0,i;
  for(i=0;i<first;i++)html+='<div class="c blank"></div>';
  for(var d=1;d<=days;d++){
-  var cd=effDay(brig,y,m,d),c=CYC[cd-1];sT+=c.t;sN+=c.h;if(cd===1||cd===2||cd===4||cd===5||cd===6||cd===7)sC++; if(isHol(y,m,d))sH+=c.t; /* смены считаются по дням цикла 1,2,4,5,6,7 */
+  var cd=effDay(brig,y,m,d),c=CYC[cd-1];sT+=c.t;sN+=c.h;if(cd===1||cd===2||cd===4||cd===5||cd===7||cd===8)sC++; if(isHol(y,m,d))sH+=c.t; /* полноценные смены: 7,5/1,5н, 8, 8,5н, 8н (дни цикла 1,2,4,5,7,8); 0,5н не считается */
   html+='<button class="c p-'+c.k+(y===T.y&&m===T.m&&d===T.d?' today':'')+(isHol(y,m,d)?' hol':'')+'" data-d="'+d+'"><i>'+d+'</i><b>'+c.l+'</b></button>';
  }
  $('grid').innerHTML=html;
